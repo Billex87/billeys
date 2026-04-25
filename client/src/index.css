@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #fbf8f3;
+  --foreground: #26211f;
+  --card: #ffffff;
+  --card-foreground: #26211f;
+  --popover: #ffffff;
+  --popover-foreground: #26211f;
+  --primary: #1f3d32;
+  --primary-foreground: #ffffff;
+  --secondary: #f3ebe3;
+  --secondary-foreground: #26211f;
+  --muted: #efe8df;
+  --muted-foreground: #645f59;
+  --accent: #dd8d7c;
+  --accent-foreground: #26211f;
+  --destructive: #b42318;
+  --border: rgba(47, 61, 53, 0.12);
+  --input: rgba(47, 61, 53, 0.12);
+  --ring: rgba(31, 61, 50, 0.42);
+  --radius: 1.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family:
+      "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont,
+      sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    letter-spacing: 0;
+  }
+
+  button:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .section-kicker {
+    color: #9b594c;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .brand-logo-frame {
+    display: block;
+    width: 10.5rem;
+    height: 3.6rem;
+    overflow: hidden;
+  }
+
+  .brand-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .form-field {
+    width: 100%;
+    border-radius: 1rem;
+    border: 1px solid rgba(47, 61, 53, 0.14);
+    background: #fbf8f3;
+    padding: 0.95rem 1rem;
+    color: #26211f;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .form-field:focus {
+    border-color: rgba(31, 61, 50, 0.55);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(31, 61, 50, 0.1);
+    outline: none;
+  }
+
+  .form-field::placeholder {
+    color: rgba(100, 95, 89, 0.68);
+  }
+}
