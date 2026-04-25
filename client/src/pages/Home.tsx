@@ -6,7 +6,6 @@ import {
   Gift,
   Heart,
   Home as HomeIcon,
-  Mail,
   Menu,
   Sparkles,
   X,
@@ -117,10 +116,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#fbf8f3] text-[#26211f]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[#2f3d35]/10 bg-[#fbf8f3]/88 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-center px-4 sm:px-6 md:justify-between lg:px-8">
           <a href="#top" className="flex items-center gap-3" aria-label="Billey's Property Maintenance home">
             <span className="brand-logo-frame">
-              <img src="/billeys-logo-cropped.png" alt="Billey's Property Maintenance" className="brand-logo-image" />
+              <img src="/billeys-logo-transparent.png" alt="Billey's Property Maintenance" className="brand-logo-image" />
             </span>
           </a>
 
@@ -148,7 +147,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-white text-[#1f3d32] md:hidden"
+            className="absolute right-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-white text-[#1f3d32] md:hidden"
             aria-label="Toggle navigation"
             aria-expanded={isMenuOpen}
           >
@@ -158,13 +157,13 @@ export default function Home() {
 
         {isMenuOpen ? (
           <div className="border-t border-[#2f3d35]/10 bg-[#fbf8f3] px-4 py-4 md:hidden">
-            <div className="mx-auto grid max-w-7xl gap-2">
+            <div className="mx-auto grid max-w-sm gap-2 text-center">
               {navItems.map(([label, id]) => (
                 <button
                   key={id}
                   type="button"
                   onClick={() => scrollTo(id)}
-                  className="rounded-full bg-white px-4 py-3 text-left text-sm font-semibold text-[#4f5e56]"
+                  className="rounded-full bg-white px-4 py-3 text-center text-sm font-semibold text-[#4f5e56]"
                 >
                   {label}
                 </button>
@@ -183,19 +182,19 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(251,248,243,0.96)_0%,rgba(251,248,243,0.86)_40%,rgba(251,248,243,0.35)_100%)]" />
 
-          <div className="relative mx-auto flex min-h-[calc(92svh-5rem)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
+          <div className="relative mx-auto flex min-h-[calc(92svh-5rem)] max-w-7xl items-center justify-center px-4 py-16 text-center sm:px-6 lg:justify-start lg:px-8 lg:text-left">
+            <div className="mx-auto max-w-3xl lg:mx-0">
               <p className="mb-5 inline-flex rounded-full border border-[#dd8d7c]/35 bg-white/70 px-4 py-2 text-sm font-bold text-[#9b594c]">
                 Woman-owned home care in Kelowna
               </p>
               <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] text-[#26211f] sm:text-6xl lg:text-7xl">
                 Make everything a little more beautiful.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f5a55] sm:text-xl">
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#5f5a55] sm:text-xl lg:mx-0">
                 Billey's Property Maintenance brings thoughtful residential cleaning, move-in and move-out resets, and local add-ons that make a home feel cared for.
               </p>
 
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
                 <button
                   type="button"
                   onClick={() => scrollTo("contact")}
@@ -212,9 +211,9 @@ export default function Home() {
                 </button>
               </div>
 
-              <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+              <div className="mx-auto mt-10 grid max-w-2xl gap-3 sm:grid-cols-3 lg:mx-0">
                 {["Reliable home cleaning", "Local gift add-ons", "Realtor-ready turnovers"].map((item) => (
-                  <div key={item} className="flex items-center gap-2 rounded-full bg-white/78 px-4 py-3 text-sm font-semibold text-[#4f5e56]">
+                  <div key={item} className="flex items-center justify-center gap-2 rounded-full bg-white/78 px-4 py-3 text-sm font-semibold text-[#4f5e56]">
                     <Check className="h-4 w-4 text-[#dd8d7c]" />
                     {item}
                   </div>
@@ -226,14 +225,14 @@ export default function Home() {
 
         <section id="services" className="bg-white py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div className="grid gap-10 text-center lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:text-left">
               <div>
                 <p className="section-kicker">Services</p>
                 <h2 className="mt-3 text-4xl font-semibold leading-tight text-[#26211f] sm:text-5xl">
                   Clean, calm, ready-to-live-in spaces.
                 </h2>
               </div>
-              <p className="text-lg leading-8 text-[#645f59]">
+              <p className="mx-auto max-w-2xl text-lg leading-8 text-[#645f59] lg:mx-0 lg:max-w-none">
                 The offer is intentionally focused: dependable residential cleaning for lived-in homes, plus deeper turnover cleaning for moving days, listings, rentals, and fresh starts.
               </p>
             </div>
@@ -242,8 +241,8 @@ export default function Home() {
               {services.map((service) => {
                 const Icon = service.icon;
                 return (
-                  <article key={service.title} className="rounded-[2rem] border border-[#2f3d35]/10 bg-[#fbf8f3] p-7 shadow-sm">
-                    <div className="flex items-start justify-between gap-6">
+                  <article key={service.title} className="rounded-[2rem] border border-[#2f3d35]/10 bg-[#fbf8f3] p-7 text-center shadow-sm md:text-left">
+                    <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start md:gap-6">
                       <div className="flex h-13 w-13 items-center justify-center rounded-full bg-[#dce9de] text-[#1f3d32]">
                         <Icon className="h-6 w-6" />
                       </div>
@@ -253,7 +252,7 @@ export default function Home() {
                     <p className="mt-3 leading-7 text-[#645f59]">{service.description}</p>
                     <ul className="mt-6 grid gap-3">
                       {service.details.map((detail) => (
-                        <li key={detail} className="flex gap-3 text-sm font-semibold text-[#4f5e56]">
+                        <li key={detail} className="flex justify-center gap-3 text-sm font-semibold text-[#4f5e56] md:justify-start">
                           <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#dd8d7c]" />
                           {detail}
                         </li>
@@ -268,14 +267,14 @@ export default function Home() {
 
         <section id="addons" className="bg-[#f3ebe3] py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-              <div className="max-w-2xl">
+            <div className="flex flex-col justify-between gap-6 text-center md:flex-row md:items-end md:text-left">
+              <div className="mx-auto max-w-2xl md:mx-0">
                 <p className="section-kicker">Local add-ons</p>
                 <h2 className="mt-3 text-4xl font-semibold leading-tight text-[#26211f] sm:text-5xl">
                   The details that make the service feel personal.
                 </h2>
               </div>
-              <p className="max-w-md text-lg leading-8 text-[#645f59]">
+              <p className="mx-auto max-w-md text-lg leading-8 text-[#645f59] md:mx-0">
                 Flowers, gifts, sweets, and wine can be added to a cleaning visit for clients, guests, new homeowners, or someone who deserves a better day.
               </p>
             </div>
@@ -287,7 +286,7 @@ export default function Home() {
                   className={`overflow-hidden rounded-[1.5rem] bg-white shadow-sm ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}
                 >
                   <img src={item.image} alt="" className="h-56 w-full object-cover" loading="lazy" />
-                  <div className="p-5">
+                  <div className="p-5 text-center">
                     <p className="text-sm font-bold text-[#9b594c]">{item.price}</p>
                     <h3 className="mt-2 text-xl font-semibold text-[#26211f]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[#645f59]">{item.cadence}</p>
@@ -303,7 +302,7 @@ export default function Home() {
             <div className="rounded-[2rem] bg-white p-8">
               <img src="/billeys-logo.png" alt="Billey's Property Maintenance logo" className="mx-auto w-full max-w-md" />
             </div>
-            <div className="self-center">
+            <div className="self-center text-center lg:text-left">
               <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#f1beb4]">Owner-led care</p>
               <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
                 A polished service with a softer, more thoughtful touch.
@@ -319,8 +318,8 @@ export default function Home() {
                 ].map(([Icon, label]) => {
                   const TypedIcon = Icon as typeof Heart;
                   return (
-                    <div key={label as string} className="rounded-2xl border border-white/12 bg-white/8 p-5">
-                      <TypedIcon className="h-6 w-6 text-[#f1beb4]" />
+                    <div key={label as string} className="rounded-2xl border border-white/12 bg-white/8 p-5 text-center">
+                      <TypedIcon className="mx-auto h-6 w-6 text-[#f1beb4]" />
                       <p className="mt-4 text-sm font-bold text-white">{label as string}</p>
                     </div>
                   );
@@ -332,7 +331,7 @@ export default function Home() {
 
         <section id="contact" className="bg-[#fbf8f3] py-20 sm:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-            <div>
+            <div className="text-center lg:text-left">
               <p className="section-kicker">Contact</p>
               <h2 className="mt-3 text-4xl font-semibold leading-tight text-[#26211f] sm:text-5xl">
                 Ask for availability or a custom quote.
@@ -340,10 +339,8 @@ export default function Home() {
               <p className="mt-5 text-lg leading-8 text-[#645f59]">
                 Tell Billey's what kind of clean you need, the property type, and whether you want any local add-ons included.
               </p>
-              <div className="mt-8 grid gap-3 text-[#4f5e56]">
-                <p className="inline-flex items-center gap-3 font-semibold">
-                  <Mail className="h-5 w-5 text-[#dd8d7c]" /> Formspree-powered quote requests
-                </p>
+              <div className="mx-auto mt-8 max-w-md rounded-[1.5rem] bg-white px-5 py-4 text-sm font-semibold leading-6 text-[#4f5e56] shadow-sm lg:mx-0">
+                Share the timing, property type, and any special add-ons you have in mind.
               </div>
             </div>
 
@@ -389,7 +386,7 @@ export default function Home() {
               {formState === "error" ? <p className="mt-4 text-sm font-semibold text-[#9b594c]">Something went wrong. Please try again or email directly.</p> : null}
               {formState === "missing" ? (
                 <p className="mt-4 text-sm font-semibold text-[#9b594c]">
-                  Formspree is ready to wire up. Add `VITE_FORMSPREE_ENDPOINT` with the real Formspree form URL.
+                  This request form is almost ready. Please check back soon or message Billey's directly.
                 </p>
               ) : null}
             </form>
@@ -398,7 +395,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-[#2f3d35]/10 bg-white py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-sm text-[#645f59] sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-center text-sm text-[#645f59] sm:px-6 md:flex-row md:items-center md:justify-between md:text-left lg:px-8">
           <p>© {year} Billey's Property Maintenance. All rights reserved.</p>
           <p>Residential cleaning and thoughtful local add-ons in Kelowna.</p>
         </div>
