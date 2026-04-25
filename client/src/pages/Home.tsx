@@ -6,7 +6,9 @@ import {
   Gift,
   Heart,
   Home as HomeIcon,
+  Instagram,
   Menu,
+  Phone,
   Sparkles,
   X,
 } from "lucide-react";
@@ -71,6 +73,8 @@ const navItems = [
   ["About", "about"],
   ["Contact", "contact"],
 ];
+
+const instagramUrl = "https://www.instagram.com/billeyspropertymaintenance";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,15 +148,26 @@ export default function Home() {
             Request a quote
           </button>
 
-          <button
-            type="button"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            className="absolute right-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-white text-[#1f3d32] md:hidden"
-            aria-label="Toggle navigation"
-            aria-expanded={isMenuOpen}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="absolute right-4 flex items-center gap-2 md:hidden">
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-white text-[#1f3d32]"
+              aria-label="Open Billey's Property Maintenance on Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-white text-[#1f3d32]"
+              aria-label="Toggle navigation"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {isMenuOpen ? (
@@ -394,10 +409,30 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-[#2f3d35]/10 bg-white py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 text-center text-sm text-[#645f59] sm:px-6 md:flex-row md:items-center md:justify-between md:text-left lg:px-8">
-          <p>© {year} Billey's Property Maintenance. All rights reserved.</p>
+      <footer className="border-t border-[#2f3d35]/10 bg-white py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 text-center text-sm text-[#645f59] sm:px-6 lg:px-8">
+          <img src="/billeys-logo-transparent.png" alt="Billey's Property Maintenance" className="w-36" />
+          <div className="flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => scrollTo("contact")}
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-[#fbf8f3] text-[#1f3d32] transition hover:bg-[#f3ebe3]"
+              aria-label="Contact Billey's Property Maintenance"
+            >
+              <Phone className="h-5 w-5" />
+            </button>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#2f3d35]/15 bg-[#fbf8f3] text-[#1f3d32] transition hover:bg-[#f3ebe3]"
+              aria-label="Open Billey's Property Maintenance on Instagram"
+            >
+              <Instagram className="h-5 w-5" />
+            </a>
+          </div>
           <p>Residential cleaning and thoughtful local add-ons in Kelowna.</p>
+          <p>© {year} Billey's Property Maintenance. All rights reserved.</p>
         </div>
       </footer>
     </div>
